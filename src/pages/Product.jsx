@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { setDoc, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
@@ -6,6 +6,7 @@ import Spinner from "../components/layout/Spinner";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+import { CartContext } from "../context/cartContext";
 
 const Product = ({}) => {
   const auth = getAuth();
@@ -39,6 +40,9 @@ const Product = ({}) => {
     return <Spinner />;
   }
 
+  const { fetchCartLengthAndTotal, fetchCartProducts } =
+    useContext(CartContext);
+
   const addToCart = async () => {
     const productCopy = product;
     productCopy.status = "not shipped";
@@ -54,6 +58,8 @@ const Product = ({}) => {
           productCopy
         );
 
+        fetchCartLengthAndTotal();
+        fetchCartProducts();
         toast.success("Added to Cart");
         navigate("/cart");
       } catch (error) {
@@ -64,7 +70,8 @@ const Product = ({}) => {
         await updateDoc(docRef, {
           count: productCopy.count + 1,
         });
-
+        fetchCartLengthAndTotal();
+        fetchCartProducts();
         toast.success("Product is Added Again");
         navigate("/cart");
       } catch (error) {

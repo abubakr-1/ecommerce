@@ -116,6 +116,8 @@ export const CartProvider = ({ children }) => {
         loading,
         total,
         cartLength,
+        fetchCartLengthAndTotal,
+        fetchCartProducts,
       }}
     >
       {children}
