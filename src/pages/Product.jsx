@@ -12,6 +12,9 @@ const Product = ({}) => {
   const auth = getAuth();
   const [user] = useAuthState(auth);
 
+  const { fetchCartLengthAndTotal, fetchCartProducts } =
+    useContext(CartContext);
+
   const params = useParams();
 
   const navigate = useNavigate();
@@ -39,9 +42,6 @@ const Product = ({}) => {
   if (loading) {
     return <Spinner />;
   }
-
-  const { fetchCartLengthAndTotal, fetchCartProducts } =
-    useContext(CartContext);
 
   const addToCart = async () => {
     const productCopy = product;
