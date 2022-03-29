@@ -21,11 +21,11 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCartProducts();
     fetchCartLengthAndTotal();
-  }, []);
+  }, [user]);
 
   const fetchCartLengthAndTotal = async () => {
-    if (user) {
-      try {
+    try {
+      if (user) {
         const docRef = collection(db, `users/${user.uid}/cart`);
         const docSnap = await getDocs(docRef);
 
@@ -39,9 +39,10 @@ export const CartProvider = ({ children }) => {
         setCartLength(docSnap.docs.length);
         setTotal(price);
         setLoading(false);
-      } catch (error) {
-        console.log(error);
       }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
     }
   };
 
@@ -56,6 +57,7 @@ export const CartProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -71,7 +73,7 @@ export const CartProvider = ({ children }) => {
       fetchCartLengthAndTotal();
     } catch (error) {
       toast.error("Something went wrong");
-      setLoading(true);
+      setLoading(false);
     }
   };
 
@@ -86,7 +88,7 @@ export const CartProvider = ({ children }) => {
       fetchCartLengthAndTotal();
     } catch (error) {
       toast.error("Something went wrong");
-      setLoading(true);
+      setLoading(false);
     }
   };
 

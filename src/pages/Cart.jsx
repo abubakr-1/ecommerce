@@ -29,9 +29,7 @@ const Cart = ({}) => {
           remove={remove}
         />
       ))}
-      <h3 className="pt-4 font-semibold">
-        Total: ${total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-      </h3>
+      <h3 className="pt-4 font-semibold">Total: ${total}</h3>
       <button className="btn w-full mt-8">Checkout</button>
     </main>
   );
