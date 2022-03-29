@@ -1,13 +1,38 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+.formInputFile {
+  width: 100%;
+}
+.formInputFile::-webkit-file-upload-button {
+  background-color: rgb(26, 25, 25);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+}
+.spinner {
+  animation: spin 1.2s linear infinite;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card.image-full:before {
+  border-radius: 0.5rem;
+  opacity: 0.5;
 }
