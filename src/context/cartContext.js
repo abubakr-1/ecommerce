@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCartProducts();
     fetchCartLengthAndTotal();
-  }, []);
+  }, [user]);
 
   const fetchCartLengthAndTotal = async () => {
     if (user) {
