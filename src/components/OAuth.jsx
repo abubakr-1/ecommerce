@@ -24,7 +24,6 @@ const OAuth = () => {
           email: user.email,
           type: "buyer",
           timestamp: serverTimestamp(),
-          cart: [],
         });
 
         navigate("/profile");

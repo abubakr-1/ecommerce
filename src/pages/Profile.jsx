@@ -15,7 +15,7 @@ const Profile = () => {
       <div className="heading">
         <h3 className="text-4xl font-bold">Profile</h3>
       </div>
-      <div className="card  w-full md:w-96 bg-primary text-primary-content mt-8 pr-5 md:pl-0">
+      <div className="card  w-full md:w-96 bg-primary text-primary-content mt-8 pr-5 md:pr-0">
         <div className="card-body">
           <h2 className="card-title">{auth.currentUser.displayName}</h2>
           <p>{auth.currentUser.email}</p>

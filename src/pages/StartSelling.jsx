@@ -51,39 +51,43 @@ const StartSelling = () => {
     <>
       {currentUser &&
         (currentUser.type === "buyer" ? (
-          <form
-            onSubmit={onSubmit}
-            className="card w-full lg:w-96  bg-secondary text-secondary-content  mx-10 mt-6"
-          >
-            <div className="card-body">
-              <h2 className="card-title capitalize">Sell your products</h2>
-              <p>Become an international brand</p>
-              <div className="card-actions justify-start">
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Address"
-                  className="input input-sm my-2 bg-secondary-content focus:outline-none w-full mr-5 text-secondary"
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-                <button className="btn btn-sm text-xs btn-outline">
-                  Start Selling
-                </button>
+          <div className="px-5 sm:px-10 mt-3">
+            <form
+              onSubmit={onSubmit}
+              className="card w-full md:w-96  bg-secondary text-secondary-content mt-8 mr-5 md:pr-0"
+            >
+              <div className="card-body">
+                <h2 className="card-title capitalize">Sell your products</h2>
+                <p>Become an international brand</p>
+                <div className="card-actions justify-start">
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your Address"
+                    className="input input-sm my-2 bg-secondary-content focus:outline-none w-full mr-5 text-secondary"
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                  <button className="btn btn-sm text-xs btn-outline">
+                    Start Selling
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         ) : (
-          <div className="card w-full lg:w-96  bg-secondary text-secondary-content  mx-10 mt-6">
-            <div className="card-body">
-              <h2 className="card-title capitalize">Create a Product</h2>
-              <p>Sell it all over the World</p>
-              <div className="card-actions justify-start">
-                <Link
-                  to="/create-product"
-                  className="btn btn-sm text-xs mt-3 btn-outline"
-                >
-                  Create a Product
-                </Link>
+          <div className="px-5 sm:px-10 mt-3">
+            <div className="card w-full lg:w-96  bg-secondary text-secondary-content  mt-8 mr-5 md:pr-0">
+              <div className="card-body">
+                <h2 className="card-title capitalize">Create a Product</h2>
+                <p>Sell it all over the World</p>
+                <div className="card-actions justify-start">
+                  <Link
+                    to="/create-product"
+                    className="btn btn-sm text-xs mt-3 btn-outline"
+                  >
+                    Create a Product
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
