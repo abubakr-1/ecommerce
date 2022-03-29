@@ -53,7 +53,7 @@ const StartSelling = () => {
         (currentUser.type === "buyer" ? (
           <form
             onSubmit={onSubmit}
-            className="card w-96  bg-secondary text-secondary-content  mx-10 mt-6"
+            className="card w-full lg:w-96  bg-secondary text-secondary-content  mx-10 mt-6"
           >
             <div className="card-body">
               <h2 className="card-title capitalize">Sell your products</h2>
@@ -73,7 +73,7 @@ const StartSelling = () => {
             </div>
           </form>
         ) : (
-          <div className="card w-96  bg-secondary text-secondary-content  mx-10 mt-6">
+          <div className="card w-full lg:w-96  bg-secondary text-secondary-content  mx-10 mt-6">
             <div className="card-body">
               <h2 className="card-title capitalize">Create a Product</h2>
               <p>Sell it all over the World</p>
