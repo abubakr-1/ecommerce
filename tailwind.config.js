@@ -30,6 +30,7 @@ module.exports = {
       "cmyk",
       "autumn",
       "business",
+      "winter",
       "acid",
       "lemonade",
     ],

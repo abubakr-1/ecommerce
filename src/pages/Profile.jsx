@@ -21,10 +21,10 @@ const Profile = () => {
           <p>{auth.currentUser.email}</p>
           <div className="card-actions justify-start">
             <button
-              onClick={() => navigate("/edit-profile")}
+              onClick={() => navigate("/edit-products")}
               className="btn btn-sm text-xs mt-3 btn-outline"
             >
-              Edit Profile
+              Edit Products
             </button>
             <button
               className="btn btn-sm text-xs mt-3 btn-outline"
@@ -38,7 +38,7 @@ const Profile = () => {
       <div className="card w-full md:w-96  bg-accent text-accent-content mt-6">
         <div className="card-body">
           <h2 className="card-title capitalize">Create a product</h2>
-          <p>Sell it all over the World</p>
+          <p>Sell Your Product all over the World</p>
           <div className="card-actions justify-start">
             <Link
               to="/create-product"

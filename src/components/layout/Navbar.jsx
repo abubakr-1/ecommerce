@@ -45,15 +45,15 @@ const Navbar = () => {
               </label>
               <div
                 tabIndex="0"
-                className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+                className="mt-3 card card-compact dropdown-content w-52 bg-secondary shadow"
               >
                 <div className="card-body">
                   <span className="font-bold text-lg">{cartLength}</span>
-                  <span className="text-info">Total: ${total}</span>
+                  <span className="text-secondary-content font-medium">
+                    Total: ${total}
+                  </span>
                   <Link to="/cart" className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View cart
-                    </button>
+                    <button className="btn btn-block">View cart</button>
                   </Link>
                 </div>
               </div>

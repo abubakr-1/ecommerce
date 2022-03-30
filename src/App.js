@@ -14,6 +14,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/cartContext";
+import EditProducts from "./pages/EditProducts";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
         <Route path="/create-product" element={<PrivateRouteSeller />}>
           <Route path="/create-product" element={<CreateProducts />} />
         </Route>
+        <Route path="/edit-products" element={<PrivateRouteSeller />}>
+          <Route path="/edit-products" element={<EditProducts />} />
+        </Route>
         <Route path="/start-selling" element={<PrivateRoute />}>
           <Route path="/start-selling" element={<StartSelling />} />
         </Route>
@@ -41,6 +46,15 @@ function App() {
           <Route
             element={<Product />}
             path="/category/:catrgoryName/:productId"
+          />
+        </Route>
+        <Route
+          element={<PrivateRouteSeller />}
+          path="/edit-products/:editProductId"
+        >
+          <Route
+            element={<EditProduct />}
+            path="/edit-products/:editProductId"
           />
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />

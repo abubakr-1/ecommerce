@@ -79,7 +79,7 @@ const StartSelling = () => {
             <div className="card w-full lg:w-96  bg-secondary text-secondary-content  mt-8 mr-5 md:pr-0">
               <div className="card-body">
                 <h2 className="card-title capitalize">Create a Product</h2>
-                <p>Sell it all over the World</p>
+                <p>Sell Your Product all over the World</p>
                 <div className="card-actions justify-start">
                   <Link
                     to="/create-product"

@@ -97,11 +97,9 @@ export const CartProvider = ({ children }) => {
     try {
       const docRef = doc(db, `users/${user.uid}/cart/${cartProduct.id}`);
       await deleteDoc(docRef);
-
       fetchCartProducts();
       fetchCartLengthAndTotal();
     } catch (error) {
-      console.log(error);
       setLoading(false);
     }
   };
