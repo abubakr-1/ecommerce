@@ -34,7 +34,7 @@ const EditProduct = ({}) => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [currentUser]);
 
   const fetchProduct = async () => {
     try {
