@@ -23,6 +23,15 @@ const EditProduct = ({}) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    price: "",
+    type: "",
+    inStock: "",
+    images: {},
+    description: "",
+  });
+
   useEffect(() => {
     fetchProduct();
   }, []);
@@ -51,15 +60,6 @@ const EditProduct = ({}) => {
       console.log(error);
     }
   };
-
-  const [formData, setFormData] = useState({
-    name: "",
-    price: "",
-    type: "",
-    inStock: "",
-    images: {},
-    description: "",
-  });
 
   const { name, price, type, inStock, images, description } = formData;
 

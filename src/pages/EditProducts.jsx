@@ -53,7 +53,12 @@ const EditProducts = ({}) => {
       <h1 className="text-4xl font-bold">Edit Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
         {products.map((product) => (
-          <ProductItem product={product.data} id={product.id} onEdit={true} />
+          <ProductItem
+            product={product.data}
+            id={product.id}
+            onEdit={true}
+            key={product.id}
+          />
         ))}
       </div>
     </main>
