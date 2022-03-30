@@ -41,7 +41,7 @@ const ProductItem = ({ product, id, onEdit }) => {
             $ {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </p>
         </div>
-        <div className="card-actions -mt-12 md:-mt-16 justify-end">
+        <div className="card-actions -mt-12 justify-end">
           {!onEdit ? (
             <Link
               to={`/category/${product.type}/${id}`}
