@@ -45,7 +45,7 @@ const Navbar = () => {
               </label>
               <div
                 tabIndex="0"
-                className="mt-3 card card-compact dropdown-content w-52 bg-secondary shadow"
+                className="mt-3 card card-compact dropdown-content w-52 bg-slate-50 text-black   shadow"
               >
                 <div className="card-body">
                   <span className="font-bold text-lg">{cartLength}</span>

@@ -16,6 +16,8 @@ import Cart from "./pages/Cart";
 import { CartProvider } from "./context/cartContext";
 import EditProducts from "./pages/EditProducts";
 import EditProduct from "./pages/EditProduct";
+import Checkout from "./pages/Checkout";
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -38,6 +40,12 @@ function App() {
         </Route>
         <Route path="/start-selling" element={<PrivateRoute />}>
           <Route path="/start-selling" element={<StartSelling />} />
+        </Route>
+        <Route path="/checkout" element={<PrivateRoute />}>
+          <Route path="/checkout" element={<Checkout />} />
+        </Route>
+        <Route path="/orders" element={<PrivateRoute />}>
+          <Route path="/orders" element={<Orders />} />
         </Route>
         <Route
           path="/category/:catrgoryName/:productId"

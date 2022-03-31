@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
         const item = docSnap.docs.map((doc) => doc.data());
 
         const price = item.reduce(
-          (a, v) => (a = a + parseInt(v.data.price) * v.count),
+          (a, v) => (a = a + Math.round(parseFloat(v.data.price) * v.count)),
           0
         );
 

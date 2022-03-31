@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
 import Spinner from "../components/layout/Spinner";
 import { CartContext } from "../context/cartContext";
+import { Link } from "react-router-dom";
 
 const Cart = ({}) => {
   const { cartProducts, loading, total, increment, decrement, remove } =
@@ -30,7 +31,9 @@ const Cart = ({}) => {
         />
       ))}
       <h3 className="pt-4 font-semibold">Total: ${total}</h3>
-      <button className="btn w-full mt-8">Checkout</button>
+      <Link to="/checkout" className="btn w-full mt-8">
+        Checkout
+      </Link>
     </main>
   );
 };

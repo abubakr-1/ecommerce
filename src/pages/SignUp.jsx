@@ -67,7 +67,7 @@ const SignUp = () => {
   return (
     <form className="form-control mx-10 my-10" onSubmit={handleSubmit}>
       <label className="label cursor-pointer flex justify-start mb-5">
-        <span className="label-text">Become a Seller</span>
+        <span className="label-text">Seller</span>
         <input
           type="checkbox"
           className="toggle ml-4"

@@ -45,7 +45,6 @@ const Product = ({}) => {
 
   const addToCart = async () => {
     const productCopy = product;
-    productCopy.status = "not shipped";
     productCopy.count = 1;
 
     const docRef = doc(db, `users/${user.uid}/cart`, productCopy.id);
