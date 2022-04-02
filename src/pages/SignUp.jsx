@@ -54,7 +54,7 @@ const SignUp = () => {
       const formDataCopy = { ...formData, type: type ? "seller" : "buyer" };
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
-      formDataCopy.cart = [];
+      formDataCopy.uid = user.uid;
       !formDataCopy.address || (!display && delete formDataCopy.address);
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 

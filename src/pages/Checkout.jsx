@@ -37,7 +37,7 @@ const Checkout = ({}) => {
     setSpinning(true);
     e.preventDefault();
 
-    const docRef = await addDoc(collection(db, "orders"), {
+    await addDoc(collection(db, "orders"), {
       address,
       cartProducts,
       total: total / 1.5,
@@ -45,6 +45,10 @@ const Checkout = ({}) => {
       status: "not shipped",
       buyerRef: user.uid,
     });
+
+    for (let i = 0; i < cartProducts.length; i++) {
+      await addDoc(collection(db, "requests"), cartProducts[i]);
+    }
 
     for (let i = 0; i < cartProducts.length; i++) {
       await deleteDoc(doc(db, `users/${user.uid}/cart`, cartProducts[i].id));

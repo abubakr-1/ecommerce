@@ -9,8 +9,10 @@ const OrderItem = ({ order, deleteOrder, id }) => {
             {cartProduct.data.name}
           </h1>
         ))}
-        <p className="badge badge-accent mt-1">${order.buyerTotal}</p>
-        <p className="badge badge-primary mt-1">{order.status}</p>
+        <p className="badge badge-outline font-semibold mt-1">
+          ${order.buyerTotal}
+        </p>
+        <p className="badge badge-outline font-semibold mt-1">{order.status}</p>
 
         <div className="card-actions justify-end">
           <button onClick={() => deleteOrder(id)}>

@@ -37,7 +37,7 @@ const StartSelling = () => {
       });
 
       toast.success("You are a seller now");
-      navigate("/create-product");
+      navigate("/profile");
     } catch (error) {
       toast.error("Something went wrong.");
     }

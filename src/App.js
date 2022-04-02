@@ -18,6 +18,7 @@ import EditProducts from "./pages/EditProducts";
 import EditProduct from "./pages/EditProduct";
 import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
+import Requests from "./pages/Requests";
 
 function App() {
   return (
@@ -64,6 +65,9 @@ function App() {
             element={<EditProduct />}
             path="/edit-products/:editProductId"
           />
+        </Route>
+        <Route element={<PrivateRouteSeller />} path="/requests">
+          <Route element={<Requests />} path="/requests" />
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/cart" element={<PrivateRoute />}>
