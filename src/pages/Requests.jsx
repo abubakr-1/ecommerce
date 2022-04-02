@@ -30,7 +30,7 @@ const Requests = ({}) => {
         });
       });
 
-      rs.filter((item) => item.data.userRef !== auth.currentUser.uid);
+      rs.filter((item) => item.data.userRef === auth.currentUser.uid);
 
       setRequests(rs);
       setLoading(false);
