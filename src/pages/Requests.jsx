@@ -9,12 +9,13 @@ import { itMatchesOne } from "daisyui/src/lib/postcss-prefixer/utils";
 
 const Requests = ({}) => {
   const auth = getAuth();
+  const [user] = useAuthState(auth);
   const [requests, setRequests] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchRequests();
-  }, []);
+  }, [user]);
 
   const fetchRequests = async () => {
     try {
@@ -31,7 +32,7 @@ const Requests = ({}) => {
       });
 
       const requests = rs.filter(
-        (item) => item.data.userRef === auth.currentUser.uid
+        (item) => item.data.data.userRef === auth.currentUser.uid
       );
 
       setRequests(requests);
@@ -56,7 +57,11 @@ const Requests = ({}) => {
       <h1 className="text-4xl font-bold">Requests</h1>
       <div className="grid grid-cols-1">
         {requests.map((request) => (
-          <RequestsItem request={request.data} id={request.id} />
+          <RequestsItem
+            request={request.data}
+            id={request.id}
+            key={request.id}
+          />
         ))}
       </div>
     </main>
