@@ -30,9 +30,11 @@ const Requests = ({}) => {
         });
       });
 
-      rs.filter((item) => item.data.userRef === auth.currentUser.uid);
+      const requests = rs.filter(
+        (item) => item.data.userRef === auth.currentUser.uid
+      );
 
-      setRequests(rs);
+      setRequests(requests);
       setLoading(false);
     } catch (error) {
       console.log(error);
