@@ -27,9 +27,15 @@ const CartItem = ({ cartProduct, increment, decrement, remove }) => {
               <PlusCircleIcon className="h-10 text-emerald-400 hover:scale-125 transition-all duration-75 ease-in" />
             </button>
             <p className="mt-3 ml-2 font-semibold">{cartProduct.count}</p>
-            <button className="ml-2" onClick={() => decrement(cartProduct)}>
-              <MinusCircleIcon className="h-10 text-blue-400 hover:scale-125 transition-all duration-75 ease-in" />
-            </button>
+            {cartProduct.count > 1 ? (
+              <button className="ml-2" onClick={() => decrement(cartProduct)}>
+                <MinusCircleIcon className="h-10 text-blue-400 hover:scale-125 transition-all duration-75 ease-in" />
+              </button>
+            ) : (
+              <button className="ml-2 disabled:text-blue-200" disabled={true}>
+                <MinusCircleIcon className="h-10 text-blue-200" />
+              </button>
+            )}
           </div>
         </div>
         <div className="card-actions justify-end">

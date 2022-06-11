@@ -5,6 +5,7 @@ import {
   limit,
   orderBy,
   query,
+  startAfter,
   where,
 } from "firebase/firestore";
 import { useEffect, useState, useRef } from "react";
@@ -17,6 +18,8 @@ import Spinner from "../components/layout/Spinner";
 const Category = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [lastProduct, setLastProduct] = useState(null);
+  const [isEnd, setIsEnd] = useState(false);
 
   const isMounted = useRef(true);
 
@@ -44,6 +47,10 @@ const Category = () => {
 
       const querySnap = await getDocs(q);
 
+      const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+
+      setLastProduct(lastVisible);
+
       const products = [];
 
       querySnap.forEach((doc) => {
@@ -53,6 +60,44 @@ const Category = () => {
         });
       });
       setProducts(products);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchMoreProducts = async () => {
+    try {
+      const productsRef = collection(db, "products");
+
+      const q = query(
+        productsRef,
+        where("type", "==", params.categoryName),
+        orderBy("timestamp", "desc"),
+        startAfter(lastProduct),
+        limit(10)
+      );
+
+      const querySnap = await getDocs(q);
+
+      const lastVisible = querySnap.docs[querySnap.docs.length - 1];
+
+      setLastProduct(lastVisible);
+
+      const products = [];
+
+      querySnap.forEach((doc) => {
+        return products.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+
+      if (products.length < 10) {
+        setIsEnd(true);
+      }
+
+      setProducts((prevState) => [...prevState, ...products]);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -85,6 +130,16 @@ const Category = () => {
           </h3>
         )}
       </div>
+
+      <br />
+
+      {lastProduct && !isEnd && (
+        <button className="btn mt-3 btn-xs text-xs" onClick={fetchMoreProducts}>
+          Load More
+        </button>
+      )}
+
+      {isEnd && <p className="badge badge-outline mt-3">No more Products</p>}
     </div>
   );
 };

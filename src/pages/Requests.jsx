@@ -5,7 +5,6 @@ import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import RequestsItem from "../components/RequestsItem";
 import Spinner from "../components/layout/Spinner";
-import { itMatchesOne } from "daisyui/src/lib/postcss-prefixer/utils";
 
 const Requests = ({}) => {
   const auth = getAuth();

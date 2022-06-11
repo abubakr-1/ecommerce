@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { getAuth } from "firebase/auth";
-import { getDocs, collection, deleteDoc } from "firebase/firestore";
+import { getDocs, collection, deleteDoc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from "../firebase.config";
@@ -81,9 +81,11 @@ export const CartProvider = ({ children }) => {
     setLoading(true);
     try {
       const docRef = doc(db, `users/${user.uid}/cart/${cartProduct.id}`);
+
       await updateDoc(docRef, {
         count: cartProduct.count - 1,
       });
+
       fetchCartProducts();
       fetchCartLengthAndTotal();
     } catch (error) {
